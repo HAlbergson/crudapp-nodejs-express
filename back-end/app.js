@@ -23,6 +23,61 @@ app.get("/artists", async (req, res) => {
   res.json(artists);
 });
 
-app.post("/artists", async (req,res) =>{
-  
-})
+app.get("/artists/:id", async (req, res) => {
+  const id = Number(req.params.id);
+  console.log(id);
+
+  const data = await fs.readFile("back-end/data.json");
+  const artists = JSON.parse(data);
+
+  let artist = artists.find((artist) => artist.id === id);
+
+  fs.writeFile("back-end/data.json", JSON.stringify(artists));
+
+  res.json(artist);
+});
+
+app.post("/artist", async (req, res) => {
+  const newArtist = req.body;
+  newArtist.id = new Date().getTime();
+
+  const data = await fs.readFile("back-end/data.json");
+  const artists = JSON.parse(data);
+  artists.push(newArtist);
+  fs.writeFile("back-end/data.json", JSON.stringify(artists));
+  res.json(artists);
+});
+app.put("/artists/:id", async (req, res) => {
+  const id = Number(req.params.id);
+  console.log(id);
+
+  const data = await fs.readFile("back-end/data.json");
+  const artists = JSON.parse(data);
+
+  let artistToUpdate = artists.find((artist) => artist.id === id);
+
+  const body = req.body;
+  artistToUpdate.name = body.name;
+  artistToUpdate.birthday = body.birthday;
+  artistToUpdate.genres = body.genres;
+  artistToUpdate.labels = body.labels;
+  artistToUpdate.website = body.website;
+  artistToUpdate.image = body.image;
+  artistToUpdate.shortDescription = body.shortDescription;
+
+  fs.writeFile("back-end/data.json", JSON.stringify(artists));
+  res.json(artists);
+});
+
+app.delete("/artists/:id", async (req, res) => {
+  const id = Number(req.params.id);
+  console.log(id);
+
+  const data = await fs.readFile("back-end/data.json");
+  const artists = JSON.parse(data);
+
+  let newArtists = artists.find((artist) => artist.id !== id);
+
+  fs.writeFile("back-end/data.json", JSON.stringify(newArtists));
+  res.json(artists);
+});
