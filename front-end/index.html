@@ -13,7 +13,7 @@
     </header>
     <main>
       <section id="artist-grid" class="grid-container"></section>
-      <dialog id="dialog-create-champ">
+      <dialog id="dialog-create-artist">
         <h2>Create new Artist</h2>
         <form method="dialog" id="form-create-artist">
           <label for="name">Name:</label>
@@ -34,9 +34,35 @@
           <input type="text" id="website" name="website" placeholder="Paste new website URL here" />
           <label for="shortDescription">Description:</label>
           <input type="text" id="shortDescription" name="shortDescription" placeholder="Write a short Description" />
-          <button id="create-champ-submit">Create champ</button><button type="button" class="btn-cancel" id="create-champ-cancel">Cancel</button>
+          <button id="create-artist-submit">Create artist</button><button type="button" class="btn-cancel" id="create-artist-cancel">Cancel</button>
           
         </form>
+      </dialog>
+       <dialog id="dialog-update-artist">
+        <h2>Update Artist</h2>
+        <form method="dialog" id="form-update-artist">
+          <label for="name">Name:</label>
+          <input type="text" name="name" id="name" placeholder="Write new artist name here" required /><br />
+          <label for="image">Image:</label>
+          <input type="url" id="dialog-image" name="image" placeholder="Paste new image URL here" /><br />
+          <label for="birthdate">Birthdate:</label>
+          <input type="text" name="birthdate" id="birthdate" placeholder="Write artist birthdate here" /><br />
+          <label for="activeSince">Active since:</label>
+          <input type="text" id="activeSince" name="activeSince" placeholder="Active since" /><br />
+          <label for="genres">
+  
+          <label for="genres">Genres</label>
+          <input type="text" id="genres" name="genres" placeholder="What genres" /><br />
+          <label for="labels">Labels:</label>
+          <input type="text" id="labels" name="labels" placeholder="What labels"/><br />
+          <label for="website">Website:</label>
+          <input type="text" id="website" name="website" placeholder="Paste new website URL here" />
+          <label for="shortDescription">Description:</label>
+          <input type="text" id="shortDescription" name="shortDescription" placeholder="Write a short Description" />
+          /><br>
+          <button type="button id="dialog-update-btn">Update artist</button>
+        </form>
+        <button class="btn-cancel" id="dialog-update-close-btn">Cancel</button>
       </dialog>
     </main>
     <script src="app.js" type="module"></script>
