@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>crudapp-nodejs-express</title>
+  </head>
+  <body>
+    <header>
+        <button id="create-artist-btn">Create new artist</button>
+
+    </header>
+    <main>
+      <section id="artist-grid" class="grid-container"></section>
+      <dialog id="dialog-create-champ">
+        <h2>Create new Artist</h2>
+        <form method="dialog" id="form-create-artist">
+          <label for="name">Name:</label>
+          <input type="text" name="name" id="name" placeholder="Write new artist name here" required /><br />
+          <label for="image">Image:</label>
+          <input type="url" id="dialog-image" name="image" placeholder="Paste new image URL here" /><br />
+          <label for="birthdate">Birthdate:</label>
+          <input type="text" name="birthdate" id="birthdate" placeholder="Write artist birthdate here" /><br />
+          <label for="activeSince">Active since:</label>
+          <input type="text" id="activeSince" name="activeSince" placeholder="Active since" /><br />
+          <label for="genres">
+  
+          <label for="genres">Genres</label>
+          <input type="text" id="genres" name="genres" placeholder="What genres" /><br />
+          <label for="labels">Labels:</label>
+          <input type="text" id="labels" name="labels" placeholder="What labels"/><br />
+          <label for="website">Website:</label>
+          <input type="text" id="website" name="website" placeholder="Paste new website URL here" />
+          <label for="shortDescription">Description:</label>
+          <input type="text" id="shortDescription" name="shortDescription" placeholder="Write a short Description" />
+          <button id="create-champ-submit">Create champ</button><button type="button" class="btn-cancel" id="create-champ-cancel">Cancel</button>
+          
+        </form>
+      </dialog>
+    </main>
+    <script src="app.js" type="module"></script>
+  </body>
+</html>
