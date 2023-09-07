@@ -1,1 +1,46 @@
-[{"id":1,"name":"Freddie Mercury","birthdate":"1946-09-05","activeSince":"1969-07-13","genres":["Rock"],"labels":["EMI","Parlophone"],"website":"https://www.queenonline.com","image":"https://cdn.britannica.com/38/200938-050-E22981D1/Freddie-Mercury-Live-Aid-Queen-Wembley-Stadium-July-13-1985.jpg","shortDescription":"Frontmand for det legendariske rockband Queen."},{"id":2,"name":"Bruce Springsteen","birthdate":"1949-09-23","activeSince":"1964-01-01","genres":["Rock"],"labels":["Columbia Records"],"website":"https://brucespringsteen.net","image":"https://www.thisdayinmusic.com/wp-content/uploads/1949/09/Bruce-Springsteen-GettyImages-75504097.webp","shortDescription":"En af de mest indflydelsesrige rockmusikere i Amerika."},{"id":3,"name":"Stevie Nicks","birthdate":"1948-05-26","activeSince":"1968-01-01","genres":["Rock","Pop"],"labels":["Warner Bros. Records","Modern Records"],"website":"https://upload.wikimedia.org/wikipedia/en/thumb/1/1c/Stevie_Nicks_-_1977.jpg/170px-Stevie_Nicks_-_1977.jpg","image":"https://static.wixstatic.com/media/ac878b_25599ccea21c4496993a1fed9b284853~mv2.jpg/v1/fill/w_640,h_824,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/ac878b_25599ccea21c4496993a1fed9b284853~mv2.jpg","shortDescription":"En legendarisk rock- og popmusiker og medlem af Fleetwood Mac."},{"id":4,"name":"Jimmy Page","birthdate":"1944-01-09","activeSince":"1962-08-12","genres":["Rock"],"labels":["Atlantic Records","Swan Song Records"],"website":"https://jimmypage.com","image":"https://guitar.com/wp-content/uploads/2020/05/Jimmy-Page-Hero-Credit-Michael-Ochs-Archives-Getty-Images@2560x1707.jpg","shortDescription":"En virtuos guitarist og grundlægger af Led Zeppelin."},{"name":"nemt Page","birthdate":"1944-01-09","activeSince":"1962-08-12","genres":["Rock"],"labels":["Atlantic Records","Swan Song Records"],"website":"https://jimmypage.com","image":"https://guitar.com/wp-content/uploads/2020/05/Jimmy-Page-Hero-Credit-Michael-Ochs-Archives-Getty-Images@2560x1707.jpg","shortDescription":"En virtuos guitarist og grundlægger af Led Zeppelin.","id":1694007604209},{"id":1694008403499},{"id":1694008442222},{"id":1694008482908},{"id":1694008957624},{"name":"dsaf","birthdate":"sdaf","activeSince":"asdf","genres":"dasf","labels":"asdf","website":"asdf","image":"https://assets.dragoart.com/images/22180_501/how-to-draw-the-poop-emoji_5e4cdfd22fc4b0.19926705_112000_5_3.png","shortDescription":"sdaf","id":1694009556036},{"id":1694010677173},{"id":1694010725387},{"name":"adsf","birthdate":"asdf","activeSince":"asdf","genres":"asfd","labels":"asdf","website":"sadf","image":"https://assets.dragoart.com/images/22180_501/how-to-draw-the-poop-emoji_5e4cdfd22fc4b0.19926705_112000_5_3.png","shortDescription":"fsa","id":1694010849943}]
+[
+  {
+    "id": 1,
+    "name": "Freddie Mercury",
+    "birthdate": "1946-09-05",
+    "activeSince": "1969-07-13",
+    "genres": ["Rock"],
+    "labels": ["EMI", "Parlophone"],
+    "website": "https://www.queenonline.com",
+    "image": "https://cdn.britannica.com/38/200938-050-E22981D1/Freddie-Mercury-Live-Aid-Queen-Wembley-Stadium-July-13-1985.jpg",
+    "shortDescription": "Frontmand for det legendariske rockband Queen."
+  },
+  {
+    "id": 2,
+    "name": "Bruce Springsteen",
+    "birthdate": "1949-09-23",
+    "activeSince": "1964-01-01",
+    "genres": ["Rock"],
+    "labels": ["Columbia Records"],
+    "website": "https://brucespringsteen.net",
+    "image": "https://www.thisdayinmusic.com/wp-content/uploads/1949/09/Bruce-Springsteen-GettyImages-75504097.webp",
+    "shortDescription": "En af de mest indflydelsesrige rockmusikere i Amerika."
+  },
+  {
+    "id": 3,
+    "name": "Stevie Nicks",
+    "birthdate": "1948-05-26",
+    "activeSince": "1968-01-01",
+    "genres": ["Rock", "Pop"],
+    "labels": ["Warner Bros. Records", "Modern Records"],
+    "website": "https://upload.wikimedia.org/wikipedia/en/thumb/1/1c/Stevie_Nicks_-_1977.jpg/170px-Stevie_Nicks_-_1977.jpg",
+    "image": "https://static.wixstatic.com/media/ac878b_25599ccea21c4496993a1fed9b284853~mv2.jpg/v1/fill/w_640,h_824,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/ac878b_25599ccea21c4496993a1fed9b284853~mv2.jpg",
+    "shortDescription": "En legendarisk rock- og popmusiker og medlem af Fleetwood Mac."
+  },
+  {
+    "id": 4,
+    "name": "Jimmy Page",
+    "birthdate": "1944-01-09",
+    "activeSince": "1962-08-12",
+    "genres": ["Rock"],
+    "labels": ["Atlantic Records", "Swan Song Records"],
+    "website": "https://jimmypage.com",
+    "image": "https://guitar.com/wp-content/uploads/2020/05/Jimmy-Page-Hero-Credit-Michael-Ochs-Archives-Getty-Images@2560x1707.jpg",
+    "shortDescription": "En virtuos guitarist og grundlægger af Led Zeppelin."
+  }
+]
