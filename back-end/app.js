@@ -93,7 +93,7 @@ app.put("/artists/fav/:id", async (req, res) => {
 
   let artistToFav = artists.find((artist) => artist.id == id);
 
-  console.log(artistToUpdate);
+  console.log(artistToFav);
 
   artistToFav.fav = !artistToFav.fav;
 
