@@ -32,19 +32,19 @@ app.get("/artists/:id", async (req, res) => {
 
   let artist = artists.find((artist) => artist.id === id);
 
-  fs.writeFile("back-end/data.json", JSON.stringify(artists));
+  await fs.writeFile("back-end/data.json", JSON.stringify(artists));
 
   res.json(artist);
 });
 
-app.post("/artists", async (req, res) => {
+app.post("/artist", async (req, res) => {
   const newArtist = req.body;
   newArtist.id = new Date().getTime();
 
   const data = await fs.readFile("back-end/data.json");
   const artists = JSON.parse(data);
   artists.push(newArtist);
-  fs.writeFile("back-end/data.json", JSON.stringify(artists));
+  await fs.writeFile("back-end/data.json", JSON.stringify(artists));
   res.json(artists);
 });
 app.put("/artists/:id", async (req, res) => {
@@ -65,7 +65,7 @@ app.put("/artists/:id", async (req, res) => {
   artistToUpdate.image = body.image;
   artistToUpdate.shortDescription = body.shortDescription;
 
-  fs.writeFile("back-end/data.json", JSON.stringify(artists));
+  await fs.writeFile("back-end/data.json", JSON.stringify(artists));
   res.json(artists);
 });
 
@@ -78,6 +78,6 @@ app.delete("/artists/:id", async (req, res) => {
 
   let newArtists = artists.find((artist) => artist.id !== id);
 
-  fs.writeFile("back-end/data.json", JSON.stringify(newArtists));
+  await fs.writeFile("back-end/data.json", JSON.stringify(newArtists));
   res.json(artists);
 });
