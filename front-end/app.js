@@ -9,6 +9,7 @@ function initApp() {
   document.querySelector("#create-artist-btn").addEventListener("click", showCreateArtistDialog);
   document.querySelector("#form-create-artist").addEventListener("submit", createArtistClicked);
   document.querySelector("#form-update-artist").addEventListener("submit", updateArtistClicked);
+  document.querySelector("#form-delete-artist").addEventListener("submit", deleteArtistClicked);
 }
 async function createArtistClicked(event) {
   const form = event.target;
@@ -79,6 +80,7 @@ function displayArtists(list) {
         </article>`;
     document.querySelector("#artist-grid").insertAdjacentHTML("beforeend", artistHTML);
     document.querySelector("#artist-grid article:last-child .update-btn").addEventListener("click", () => updateClicked(artist));
+    document.querySelector("#artist-grid article:last-child .delete-btn").addEventListener("click", () => deleteClicked(artist));
   }
 }
 function showCreateArtistDialog() {
@@ -105,5 +107,5 @@ function deleteClicked(artist) {
   // set data-id attribute of post you want to delete (... to use when delete)
   document.querySelector("#form-delete-artist").setAttribute("data-id", artist.id);
   // show delete dialog
-  document.querySelector("#dialog-delete-post").showModal();
+  document.querySelector("#dialog-delete-artist").showModal();
 }
