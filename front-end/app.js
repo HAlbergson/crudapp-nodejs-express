@@ -36,7 +36,6 @@ async function createArtistClicked(event) {
   }
 }
 async function updateArtistClicked(event) {
-  console.log("hvad sker der");
   const form = event.target;
   const name = form.name.value;
   const birthdate = form.birthdate.value;
@@ -110,7 +109,6 @@ function showCreateArtistDialog() {
 }
 
 function updateClicked(artist) {
-  console.log(artist);
   const updateForm = document.querySelector("#form-update-artist");
   updateForm.name.value = artist.name;
   updateForm.birthdate.value = artist.birthdate;
@@ -124,9 +122,7 @@ function updateClicked(artist) {
   document.querySelector("#dialog-update-artist").showModal();
 }
 async function changeFavClicked(artist) {
-  console.log("bliver denne aktiveret?");
   const response = await changeFav(artist);
-  console.log(response);
   if (response.ok) {
     updateGrid();
   }
@@ -140,12 +136,10 @@ function deleteClicked(artist) {
 function inputSearchChanged(event) {
   const value = event.target.value;
   const artistShow = searchArtistByName(value);
-  console.log(artistShow);
   displayArtists(artistShow);
 }
 
 async function sortByChanged() {
-  console.log("am i working?");
   const sortField = document.querySelector("#select-sort-by").value;
   const artists = await getArtists();
 

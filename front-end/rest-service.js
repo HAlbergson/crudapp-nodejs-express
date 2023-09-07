@@ -28,15 +28,15 @@ async function createArtist(name, birthdate, activeSince, genres, labels, websit
 }
 async function updateArtist(id, name, birthdate, activeSince, genres, labels, website, image, shortDescription) {
   const artistToUpdate = {
-    id: id,
-    name: name,
-    birthdate: birthdate,
-    activeSince: activeSince,
-    genres: genres,
-    labels: labels,
-    website: website,
-    image: image,
-    shortDescription: shortDescription,
+    id,
+    name,
+    birthdate,
+    activeSince,
+    genres,
+    labels,
+    website,
+    image,
+    shortDescription,
   };
   const artistJSON = JSON.stringify(artistToUpdate);
   const response = await fetch(`${endpoint}/artists/${id}`, {
