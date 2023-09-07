@@ -16,4 +16,5 @@ function compareGenres(artist1, artist2) {
   return artist1.genres.localeCompare(artist2.genres);
 }
 
+
 export { searchArtistByName, compareGenres, compareName };

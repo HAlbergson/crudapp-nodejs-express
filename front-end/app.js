@@ -1,4 +1,4 @@
-import { getArtists, updateArtist, createArtist, deleteArtist } from "./rest-service.js";
+import { getArtists, updateArtist, createArtist, deleteArtist, changeFav } from "./rest-service.js";
 import { searchArtistByName, compareGenres, compareName } from "./helpers.js";
 window.addEventListener("load", initApp);
 
@@ -10,7 +10,7 @@ function initApp() {
   document.querySelector("#form-create-artist").addEventListener("submit", createArtistClicked);
   document.querySelector("#form-update-artist").addEventListener("submit", updateArtistClicked);
   document.querySelector("#form-delete-artist").addEventListener("submit", deleteArtistClicked);
-  document.querySelector("#filter-btn").addEventListener("click", filterArtistClicked);
+  document.querySelector("#select-filter-by").addEventListener("change", filterChanged);
 
   document.querySelector("#form-delete-artist .btn-cancel").addEventListener("click", deleteCancelClicked);
   document.querySelector("#form-update-artist .btn-cancel").addEventListener("click", updateCancelClicked);
@@ -78,6 +78,8 @@ async function updateGrid() {
 function displayArtists(list) {
   document.querySelector("#artist-grid").innerHTML = "";
   for (const artist of list) {
+    const favoriteButtonText = artist.fav ? "Remove from favorites" : "Add to favorites";
+
     const artistHTML = /*html*/ `
         <article class="grid-item">
             <div class="body">
@@ -93,11 +95,14 @@ function displayArtists(list) {
             <div class="body">
                 <button class="update-btn">Update</button>
                 <button class="delete-btn">Delete</button>
+                <button class="fav-btn">${favoriteButtonText}</button>
+
             </div>
         </article>`;
     document.querySelector("#artist-grid").insertAdjacentHTML("beforeend", artistHTML);
     document.querySelector("#artist-grid article:last-child .update-btn").addEventListener("click", () => updateClicked(artist));
     document.querySelector("#artist-grid article:last-child .delete-btn").addEventListener("click", () => deleteClicked(artist));
+    document.querySelector("#artist-grid article:last-child .fav-btn").addEventListener("click", () => changeFavClicked(artist));
   }
 }
 function showCreateArtistDialog() {
@@ -117,6 +122,14 @@ function updateClicked(artist) {
   updateForm.shortDescription.value = artist.shortDescription;
   updateForm.setAttribute("data-id", artist.id);
   document.querySelector("#dialog-update-artist").showModal();
+}
+async function changeFavClicked(artist) {
+  console.log("bliver denne aktiveret?");
+  const response = await changeFav(artist);
+  console.log(response);
+  if (response.ok) {
+    updateGrid();
+  }
 }
 function deleteClicked(artist) {
   document.querySelector("#dialog-delete-artist-name").textContent = artist.name;
@@ -143,6 +156,16 @@ async function sortByChanged() {
   }
 
   displayArtists(artists);
+}
+async function filterChanged() {
+  const filterField = document.querySelector("#select-filter-by").value;
+  const artists = await getArtists();
+  if (filterField === "show-all") {
+    displayArtists(artists);
+  } else {
+    const filteredArtists = artists.filter((artist) => artist.fav === true);
+    displayArtists(filteredArtists);
+  }
 }
 
 export { artists };

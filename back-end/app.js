@@ -81,3 +81,23 @@ app.delete("/artists/:id", async (req, res) => {
   await fs.writeFile("back-end/data.json", JSON.stringify(artists));
   res.json(artists);
 });
+
+app.put("/artists/fav/:id", async (req, res) => {
+  const id = req.params.id;
+
+  console.log(id);
+
+  const data = await fs.readFile("back-end/data.json");
+
+  const artists = JSON.parse(data);
+
+  let artistToFav = artists.find((artist) => artist.id == id);
+
+  console.log(artistToUpdate);
+
+  artistToFav.fav = !artistToFav.fav;
+
+  fs.writeFile("back-end/data.json", JSON.stringify(artists));
+
+  res.json(artists);
+});
