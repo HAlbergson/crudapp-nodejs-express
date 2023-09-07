@@ -9,7 +9,6 @@ function initApp() {
   document.querySelector("#create-artist-btn").addEventListener("click", showCreateArtistDialog);
   document.querySelector("#form-create-artist").addEventListener("submit", createArtistClicked);
   document.querySelector("#form-update-artist").addEventListener("submit", updateArtistClicked);
-  document.querySelector("#form-delete-artist").addEventListener("submit", deleteArtistClicked);
 }
 async function createArtistClicked(event) {
   const form = event.target;
@@ -25,7 +24,6 @@ async function createArtistClicked(event) {
   const response = await createArtist(name, birthdate, activeSince, genres, labels, website, image, shortDescription);
   if (response.ok) {
     updateGrid();
-    form.reset();
   }
 }
 async function updateArtistClicked(event) {
@@ -41,15 +39,6 @@ async function updateArtistClicked(event) {
   const id = form.getAttribute("data-id");
   const response = await updateArtist(id, name, birthdate, activeSince, genres, labels, website, image, shortDescription);
   if (response.ok) {
-    updateGrid();
-  }
-}
-async function deleteArtistClicked(event) {
-  const id = event.target.getAttribute("data-id"); // event.target is the delete form
-  const response = await deleteArtist(id);
-
-  if (response.ok) {
-    console.log("succesfully deleted");
     updateGrid();
   }
 }
@@ -101,11 +90,4 @@ function updateClicked(artist) {
   updateForm.setAttribute("data-id", artist.id);
   document.querySelector("#dialog-update-artist").showModal();
 }
-function deleteClicked(artist) {
-  // show title of post you want to delete
-  document.querySelector("#dialog-delete-artist-name").textContent = artist.title;
-  // set data-id attribute of post you want to delete (... to use when delete)
-  document.querySelector("#form-delete-artist").setAttribute("data-id", artist.id);
-  // show delete dialog
-  document.querySelector("#dialog-delete-artist").showModal();
-}
+

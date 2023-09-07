@@ -37,7 +37,7 @@ app.get("/artists/:id", async (req, res) => {
   res.json(artist);
 });
 
-app.post("/artist", async (req, res) => {
+app.post("/artists", async (req, res) => {
   const newArtist = req.body;
   newArtist.id = new Date().getTime();
 
