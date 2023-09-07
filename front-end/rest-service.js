@@ -48,9 +48,6 @@ async function updateArtist(id, name, birthdate, activeSince, genres, labels, we
 }
 async function deleteArtist(id) {
   const response = await fetch(`${endpoint}/artists/${id}`, {
-    headers: {
-      "Content-Type": "application/json",
-    },
     method: "DELETE",
   });
   return response;

@@ -9,6 +9,8 @@ function initApp() {
   document.querySelector("#create-artist-btn").addEventListener("click", showCreateArtistDialog);
   document.querySelector("#form-create-artist").addEventListener("submit", createArtistClicked);
   document.querySelector("#form-update-artist").addEventListener("submit", updateArtistClicked);
+  document.querySelector("#form-delete-artist").addEventListener("submit", deleteArtistClicked);
+  document.querySelector("#form-delete-artist .btn-cancel").addEventListener("click", deleteCancelClicked);
 }
 async function createArtistClicked(event) {
   const form = event.target;
@@ -41,6 +43,18 @@ async function updateArtistClicked(event) {
   if (response.ok) {
     updateGrid();
   }
+}
+async function deleteArtistClicked(event) {
+  const id = event.target.getAttribute("data-id"); // event.target is the delete form
+  const response = await deleteArtist(id);
+
+  if (response.ok) {
+    console.log("succesfully deleted");
+    updateGrid();
+  }
+}
+function deleteCancelClicked() {
+  document.querySelector("#dialog-delete-artist").close(); // close dialog
 }
 
 async function updateGrid() {
@@ -90,4 +104,8 @@ function updateClicked(artist) {
   updateForm.setAttribute("data-id", artist.id);
   document.querySelector("#dialog-update-artist").showModal();
 }
-
+function deleteClicked(artist) {
+  document.querySelector("#dialog-delete-artist-name").textContent = artist.name;
+  document.querySelector("#form-delete-artist").setAttribute("data-id", artist.id);
+  document.querySelector("#dialog-delete-artist").showModal();
+}

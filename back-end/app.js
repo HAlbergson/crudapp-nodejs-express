@@ -74,10 +74,10 @@ app.delete("/artists/:id", async (req, res) => {
   console.log(id);
 
   const data = await fs.readFile("back-end/data.json");
-  const artists = JSON.parse(data);
+  let artists = JSON.parse(data);
 
-  let newArtists = artists.find((artist) => artist.id !== id);
+  artists = artists.filter((artist) => artist.id !== id);
 
-  await fs.writeFile("back-end/data.json", JSON.stringify(newArtists));
+  await fs.writeFile("back-end/data.json", JSON.stringify(artists));
   res.json(artists);
 });
