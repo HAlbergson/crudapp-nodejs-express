@@ -1,5 +1,5 @@
 import { getArtists, updateArtist, createArtist, deleteArtist } from "./rest-service.js";
-
+import { searchArtistByName } from "./helpers.js";
 window.addEventListener("load", initApp);
 
 let artists;
@@ -11,6 +11,8 @@ function initApp() {
   document.querySelector("#form-update-artist").addEventListener("submit", updateArtistClicked);
   document.querySelector("#form-delete-artist").addEventListener("submit", deleteArtistClicked);
   document.querySelector("#form-delete-artist .btn-cancel").addEventListener("click", deleteCancelClicked);
+  document.querySelector("#input-search").addEventListener("keyup", inputSearchChanged);
+  document.querySelector("#input-search").addEventListener("search", inputSearchChanged);
 }
 async function createArtistClicked(event) {
   const form = event.target;
@@ -63,6 +65,7 @@ async function updateGrid() {
 }
 
 function displayArtists(list) {
+  document.querySelector("#artist-grid").innerHTML = "";
   for (const artist of list) {
     const artistHTML = /*html*/ `
         <article class="grid-item">
@@ -109,3 +112,12 @@ function deleteClicked(artist) {
   document.querySelector("#form-delete-artist").setAttribute("data-id", artist.id);
   document.querySelector("#dialog-delete-artist").showModal();
 }
+
+function inputSearchChanged(event) {
+  console.log("sker der noget?");
+  const value = event.target.value;
+  const artistShow = searchArtistByName(value);
+  console.log(artistShow);
+  displayArtists(artistShow);
+}
+export { artists };

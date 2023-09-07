@@ -9,7 +9,20 @@
   <body>
     <header>
         <button id="create-artist-btn">Create new artist</button>
-
+         <section class="tools-grid">
+        <label for="select-sort-by">Sort by:
+            <select id="select-sort-by">
+              <option value="a-z" selected>Not selected</option>
+              <option value="name">Name</option>
+              <option value="role">Role</option>
+            </select>
+        </label>
+            <div>
+              <label for="input-search">Search:</label>
+              <input type="search" id="input-search" placeholder="Search by name">
+            </div>
+      </section>
+      <button id="filter-btn">Filter</button>  
     </header>
     <main>
       <section id="artist-grid" class="grid-container"></section>
