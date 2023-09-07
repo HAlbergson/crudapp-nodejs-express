@@ -1,5 +1,5 @@
 import { getArtists, updateArtist, createArtist, deleteArtist } from "./rest-service.js";
-import { searchArtistByName } from "./helpers.js";
+import { searchArtistByName, compareGenres, compareName } from "./helpers.js";
 window.addEventListener("load", initApp);
 
 let artists;
@@ -10,7 +10,12 @@ function initApp() {
   document.querySelector("#form-create-artist").addEventListener("submit", createArtistClicked);
   document.querySelector("#form-update-artist").addEventListener("submit", updateArtistClicked);
   document.querySelector("#form-delete-artist").addEventListener("submit", deleteArtistClicked);
+  document.querySelector("#filter-btn").addEventListener("click", filterArtistClicked);
+
   document.querySelector("#form-delete-artist .btn-cancel").addEventListener("click", deleteCancelClicked);
+  document.querySelector("#form-update-artist .btn-cancel").addEventListener("click", updateCancelClicked);
+  document.querySelector("#select-sort-by").addEventListener("change", sortByChanged);
+
   document.querySelector("#input-search").addEventListener("keyup", inputSearchChanged);
   document.querySelector("#input-search").addEventListener("search", inputSearchChanged);
 }
@@ -31,6 +36,7 @@ async function createArtistClicked(event) {
   }
 }
 async function updateArtistClicked(event) {
+  console.log("hvad sker der");
   const form = event.target;
   const name = form.name.value;
   const birthdate = form.birthdate.value;
@@ -58,7 +64,12 @@ async function deleteArtistClicked(event) {
 function deleteCancelClicked() {
   document.querySelector("#dialog-delete-artist").close(); // close dialog
 }
-
+function updateCancelClicked() {
+  document.querySelector("#dialog-update-artist").close(); // close dialog
+}
+function filterArtistClicked() {
+  document.querySelector("#filter-dialog").showModal();
+}
 async function updateGrid() {
   artists = await getArtists();
   displayArtists(artists);
@@ -114,10 +125,24 @@ function deleteClicked(artist) {
 }
 
 function inputSearchChanged(event) {
-  console.log("sker der noget?");
   const value = event.target.value;
   const artistShow = searchArtistByName(value);
   console.log(artistShow);
   displayArtists(artistShow);
 }
+
+async function sortByChanged() {
+  console.log("am i working?");
+  const sortField = document.querySelector("#select-sort-by").value;
+  const artists = await getArtists();
+
+  if (sortField === "name") {
+    artists.sort(compareName);
+  } else if (sortField === "genres") {
+    artists.sort(compareGenres);
+  }
+
+  displayArtists(artists);
+}
+
 export { artists };

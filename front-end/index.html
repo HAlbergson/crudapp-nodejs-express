@@ -10,12 +10,6 @@
     <header>
         <button id="create-artist-btn">Create new artist</button>
          <section class="tools-grid">
-        <label for="select-sort-by">Sort by:
-            <select id="select-sort-by">
-              <option value="a-z" selected>Not selected</option>
-              <option value="name">Name</option>
-              <option value="role">Role</option>
-            </select>
         </label>
             <div>
               <label for="input-search">Search:</label>
@@ -23,9 +17,18 @@
             </div>
       </section>
       <button id="filter-btn">Filter</button>  
+              <label for="select-sort-by"></label>
+          Sort by:
+          <select id="select-sort-by">
+            <option value="" selected>Not selected</option>
+            <option value="name">Name</option>
+            <option value="genres">Genres</option>
+          </select>
+        </label>
     </header>
     <main>
       <section id="artist-grid" class="grid-container"></section>
+      
       <dialog id="dialog-create-artist">
         <h2>Create new Artist</h2>
         <form method="dialog" id="form-create-artist">
@@ -73,9 +76,10 @@
           <label for="shortDescription">Description:</label>
           <input type="text" id="shortDescription" name="shortDescription" placeholder="Write a short Description" />
           <br>
-          <button type="button id="dialog-update-btn">Update artist</button>
+          <button id="dialog-update-btn">Update artist</button>
+          <button type="button" class="btn-cancel" id="dialog-update-close-btn">Cancel</button>
         </form>
-        <button class="btn-cancel" id="dialog-update-close-btn">Cancel</button>
+       
       </dialog>
 
       <dialog id="dialog-delete-artist">
